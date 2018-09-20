@@ -21,8 +21,10 @@
       <md-card-header>
         <md-card-header-text layout="row" layout-align="center">
           <div class="input-group apis-header-filter" flex="60" flex-xs="100">
-            <input class="form-control" type="text" ng-model="searchAPIs" placeholder="Search APIs ..."
-                   ng-change="$ctrl.loadMore(query.order, searchAPIs, false)" autofocus/>
+            <form flex layout="row" name="formSearch" autocomplete="off" ng-submit="$ctrl.search()">
+              <input type="text" autofocus class="form-control apis-filter"
+                     ng-model="$ctrl.query" placeholder="Search APIs" />
+            </form>
           </div>
         </md-card-header-text>
       </md-card-header>

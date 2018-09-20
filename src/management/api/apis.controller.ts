@@ -20,6 +20,7 @@ import { StateService } from '@uirouter/core';
 
 export class ApisController {
 
+  private query: string = '';
   private apisProvider: any;
   private apis: any;
   private graviteeUIVersion: string;
@@ -50,6 +51,7 @@ export class ApisController {
     this.graviteeUser = graviteeUser;
     this.graviteeUIVersion = Build.version;
     this.portalTitle = Constants.portal.title;
+    this.query = $state.params.q;
     this.apisProvider = _.filter(resolvedApis.data, 'manageable');
     if (!this.apisProvider.length) {
       // if no APIs, maybe the auth token has been expired
@@ -68,6 +70,10 @@ export class ApisController {
     $transitions.onStart({to: $state.current.name}, () => {
       $scope.hideApis = true;
     });
+  }
+
+  search() {
+    this.$state.go('.', {q: this.query});
   }
 
   update(api) {
