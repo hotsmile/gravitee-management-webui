@@ -71,7 +71,7 @@
             <md-button type="submit" class="md-raised md-primary" ng-disabled="!$ctrl.hasFilters()">
               Search
             </md-button>
-            <md-button type="button" class="md-flat" ng-click="$ctrl.clearFilters()" ng-disabled="logsFiltersForm.$pristine">
+            <md-button type="button" class="md-flat" ng-click="$ctrl.clearFilters()" ng-disabled="!$ctrl.hasFilters()">
               Clear filters
             </md-button>
           </div>
