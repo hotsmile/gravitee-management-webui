@@ -52,19 +52,19 @@ class DictionaryService {
   }
 
   deploy(dictionary) {
-    return this.$http.post([this.dictionariesURL, dictionary.id, '_deploy'].join("/"));
+    return this.$http.post([this.dictionariesURL, dictionary.id, '_deploy'].join("/"), {});
   }
 
   undeploy(dictionary) {
-    return this.$http.post([this.dictionariesURL, dictionary.id, '_undeploy'].join("/"));
+    return this.$http.post([this.dictionariesURL, dictionary.id, '_undeploy'].join("/"), {});
   }
 
   start(dictionary) {
-    return this.$http.post([this.dictionariesURL, dictionary.id].join("/") + '?action=START' );
+    return this.$http.post([this.dictionariesURL, dictionary.id].join("/") + '?action=START', {});
   }
 
   stop(dictionary) {
-    return this.$http.post([this.dictionariesURL, dictionary.id].join("/") + '?action=STOP' );
+    return this.$http.post([this.dictionariesURL, dictionary.id].join("/") + '?action=STOP', {});
   }
 }
 
